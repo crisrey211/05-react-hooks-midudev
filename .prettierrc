@@ -1,0 +1,13 @@
+{
+  "printWidth": 80, // Ancho máximo de línea
+  "tabWidth": 2, // Tamaño de la tabulación
+  "useTabs": false, // Usar espacios en lugar de tabulaciones
+  "semi": true, // Agregar punto y coma al final de las sentencias
+  "singleQuote": true, // Usar comillas simples en lugar de dobles
+  "quoteProps": "as-needed", // Citar solo las claves de los objetos necesarias
+  "trailingComma": "none", // Coma al final de los elementos en arrays y objetos
+  "bracketSpacing": true, // Espacios entre llaves en objetos
+  "jsxBracketSameLine": false, // Colocar el cierre de la etiqueta JSX en la misma línea
+  "arrowParens": "always", // Incluir paréntesis alrededor de los parámetros de funciones de flecha
+  "endOfLine": "crlf"
+}
