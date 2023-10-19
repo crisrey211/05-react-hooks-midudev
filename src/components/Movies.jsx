@@ -5,10 +5,10 @@ const ListOfMovies = ({ movies }) => {
     return (
         <ul>
             {movies.map((item) => (
-                <li key={item.imdbID}>
-                    <h3>{item.Title} </h3>
-                    <p>{item.Year}</p>
-                    <img src={item.Poster} />
+                <li key={item.id}>
+                    <h3>{item.title} </h3>
+                    <p>{item.tear}</p>
+                    <img src={item.poster} alt={item.title} />
                 </li>
             ))}
         </ul>)
