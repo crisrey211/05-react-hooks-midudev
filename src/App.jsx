@@ -1,31 +1,27 @@
-import { useState } from 'react'
-import './App.css'
-import responseMovies from "./mocks/with-results.json"
-import withoutResults from "./mocks/no-results.json"
+import "./App.css";
+import Movies from "./components/Movies";
+import responseMovies from "./mocks/with-results.json";
+
 
 function App() {
 
-  const movies = responseMovies.Search
-  const hasMovies = movies?.length > 0
-
-  console.log(hasMovies)
+  const movies = responseMovies.Search;
 
   return (
-    <div className='page'>
-
+    <div className="page">
       <header>
         <h1>Buscador de películas</h1>
-        <form className='form'>
-          <input placeholder='Avengers, Star wars, The Matix...' />
-          <button type='submit'>Buscar</button>
+        <form className="form">
+          <input placeholder="Avengers, Star wars, The Matix..." />
+          <button type="submit">Buscar</button>
         </form>
       </header>
 
       <main>
-        Aquí irán los resultados
+        <Movies movies={movies} />
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
