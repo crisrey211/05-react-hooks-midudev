@@ -7,7 +7,7 @@ const ListOfMovies = ({ movies }) => {
             {movies.map((item) => (
                 <li key={item.id}>
                     <h3>{item.title} </h3>
-                    <p>{item.tear}</p>
+                    <p>{item.year}</p>
                     <img src={item.poster} alt={item.title} />
                 </li>
             ))}
