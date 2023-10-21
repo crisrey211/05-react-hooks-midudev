@@ -1,31 +1,34 @@
+import { useEffect, useState } from "react";
 import "./App.css";
-import { useEffect, useRef, useState } from "react";
 import Movies from "./components/Movies";
 import useMovies from "./hooks/useMovies";
 
-function App() {
-
-  const { movies } = useMovies()
-  const [query, setQuery] = useState("")
+function useSearch() {
+  const [search, updateSearch] = useState("")
   const [error, setError] = useState(null)
-  const counter = useRef(0) //valor que persiste entre renders
 
-  counter.current++
 
   useEffect(() => {
-    if (query === "") {
+    if (search === "") {
       setError("No se puede buscar una pelicula vacia.")
       return
     }
 
-    if (query.length < 3) {
+    if (search.length < 3) {
       setError("La película debe de tener al menos 3 carácteres.")
       return
     }
 
     setError(null)
-  }, [query])
+  }, [search])
 
+  return { search, updateSearch, error }
+}
+
+
+function App() {
+  const { movies } = useMovies()
+  const { search, updateSearch, error } = useSearch()
 
   const handleSubmit = (ev) => {
     ev.preventDefault()
@@ -35,7 +38,7 @@ function App() {
   }
 
   const handleChange = (ev) => {
-    setQuery(ev.target.value)
+    updateSearch(ev.target.value)
   }
 
   return (
@@ -43,7 +46,7 @@ function App() {
       <header>
         <h1>Buscador de películas</h1>
         <form className="form" onSubmit={handleSubmit}>
-          <input value={query} onChange={handleChange} name="query" placeholder="Avengers, Star wars, The Matix..." />
+          <input value={search} onChange={handleChange} name="query" placeholder="Avengers, Star wars, The Matix..." />
           <button type="submit" >Buscar</button>
         </form>
         {error && <p style={{ color: "red" }}>{error}</p>}
