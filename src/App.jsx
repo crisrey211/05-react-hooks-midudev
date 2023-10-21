@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Movies from "./components/Movies";
 import useMovies from "./hooks/useMovies";
@@ -6,9 +6,14 @@ import useMovies from "./hooks/useMovies";
 function useSearch() {
   const [search, updateSearch] = useState("")
   const [error, setError] = useState(null)
-
+  const isFirstInput = useRef(true)
 
   useEffect(() => {
+    if (isFirstInput.current) {
+      isFirstInput.current = search === ""
+      return
+    }
+
     if (search === "") {
       setError("No se puede buscar una pelicula vacia.")
       return
