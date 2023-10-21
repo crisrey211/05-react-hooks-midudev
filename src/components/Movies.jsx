@@ -8,7 +8,7 @@ const ListOfMovies = ({ movies }) => {
                 <li key={item.id}>
                     <h3>{item.title} </h3>
                     <p>{item.year}</p>
-                    <img src={item.poster} alt={item.title} />
+                    <img src={item.image} alt={item.title} />
                 </li>
             ))}
         </ul>)
@@ -18,7 +18,6 @@ const NoMoviesResult = () => {
 
     return <p>No se encontraron películas</p>
 }
-
 
 export default function Movies({ movies }) {
     const hasMovies = movies?.length > 0;
