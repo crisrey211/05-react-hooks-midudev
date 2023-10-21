@@ -8,6 +8,9 @@ function App() {
   const { movies } = useMovies()
   const [query, setQuery] = useState("")
   const [error, setError] = useState(null)
+  const counter = useRef(0) //valor que persiste entre renders
+
+  counter.current++
 
   useEffect(() => {
     if (query === "") {
