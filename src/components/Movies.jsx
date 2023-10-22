@@ -1,7 +1,5 @@
-/* import React from 'react';
-import withoutResults from "../mocks/no-results.json"; */
-
 const ListOfMovies = ({ movies }) => {
+    console.log(movies);
     return (
         <ul className="movies">
             {movies.map((item) => (

@@ -44,6 +44,7 @@ function App() {
     updateSearch(ev.target.value)
   }
 
+  console.log(movies)
   return (
     <div className="page">
       <header>
