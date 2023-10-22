@@ -32,14 +32,12 @@ function useSearch() {
 
 
 function App() {
-  const { movies } = useMovies()
   const { search, updateSearch, error } = useSearch()
+  const { movies, getMovies } = useMovies({ search })
 
   const handleSubmit = (ev) => {
     ev.preventDefault()
-    const { query } = Object.fromEntries(
-      new window.FormData(ev.target)
-    )
+    getMovies()
   }
 
   const handleChange = (ev) => {
