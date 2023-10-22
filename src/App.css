@@ -8,10 +8,18 @@
 main {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 form {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+.movies {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minMax(200px, 1fr));
 }
