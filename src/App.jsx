@@ -46,7 +46,9 @@ function App() {
   }
 
   const handleChange = (ev) => {
-    updateSearch(ev.target.value)
+    const newSearch = ev.target.value
+    updateSearch(newSearch)
+    getMovies({ search: newSearch })
   }
 
 
